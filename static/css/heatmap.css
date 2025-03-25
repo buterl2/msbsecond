@@ -1,0 +1,147 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #09111E;
+    color: #f5f5f5;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.top-bar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    position: static;
+    top: 20px;
+    left: 20px;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+.title-container {
+    position: static;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.doto-title {
+    font-family: "Dosis", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    color: #ffffff;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.last-update {
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    text-align: right;
+    margin-top: 5px;
+}
+
+/* Removed main-container and heatmap-controls styles */
+
+.heatmap-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 4px;
+    padding: 20px;
+    width: calc(100% - 60px);
+    margin: 30px auto;
+}
+
+.bin {
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1e293b;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #384557;
+    width: 35px;
+    height: 35px;
+}
+
+.bin:hover {
+    background-color: #2d3748;
+    transform: scale(1.05);
+}
+
+.bin.empty {
+    background-color: #131c2a;
+    color: #6b7280;
+}
+
+.footer {
+    position: fixed;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 100;
+    background-color: transparent;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #777;
+    transition: color 0.3s ease;
+}
+
+.footer:hover p {
+    color: #aaa;
+}
+
+.heart {
+    color: #ff4d6d;
+    font-size: 1rem;
+    animation: heartbeat 1.5s ease infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    5% { transform: scale(1.1); }
+    10% { transform: scale(1); }
+    15% { transform: scale(1.1); }
+    20% { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .heatmap-container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .heatmap-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

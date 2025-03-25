@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MSB Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta http-equiv="refresh" content="300"> <!-- Auto-refresh every 5 minutes -->
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo-container">
+            <img src="https://www.medtronic.com/content/dam/medtronic-com/medtronic75.svg" alt="Medtronic Logo" class="logo">
+        </div>
+        
+        <div class="title-container">
+            <h1 class="doto-title">MSB Dashboard</h1>
+            <div id="last-update" class="last-update">Last Update: --/--/---- --:--:--</div>
+            <button id="toggle-day-button" class="toggle-day-button">Show Tomorrow</button>
+        </div>
+    </div>
+    
+    <div class="day-indicator-container">
+        <span id="day-indicator" class="day-indicator">Showing: Today</span>
+    </div>
+    
+    <div class="main-container">
+        <div class="dashboard-container">
+            <div class="data-item">
+                <div class="item-title">Open Deliveries</div>
+                <div class="item-value" id="open-deliveries">Loading...</div>
+            </div>
+            
+            <div class="data-item">
+                <div class="item-title">Open HU</div>
+                <div class="item-value" id="open-hu">Loading...</div>
+                <div class="secondary-value" id="lines-per-hu">Loading...</div>
+            </div>
+            
+            <div class="data-item">
+                <div class="item-title">Open Lines</div>
+                <div class="item-value" id="open-lines">Loading...</div>
+                <div class="secondary-value" id="total-quantity">Loading...</div>
+            </div>
+            
+            <div class="data-item">
+                <div class="item-title">Open Picked Lines</div>
+                <div class="item-value" id="open-picked-lines">Loading...</div>
+                <div class="secondary-value" id="picked-percentage">Loading...</div>
+            </div>
+            
+            <div class="data-item">
+                <div class="item-title">Open Lines not Picked</div>
+                <div class="item-value" id="open-lines-not-picked">Loading...</div>
+                <div class="secondary-value" id="not-picked-percentage">Loading...</div>
+            </div>
+            <div class="data-item">
+                <div class="item-title">Deliveries PGI Today</div>
+                <div class="item-value" id="deliveries-pgi">Loading...</div>
+                <div class="secondary-value" id="pgi-lines">Loading...</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="chart-container-wrapper">
+        <div class="chart-container">
+            <div class="chart-canvas-wrapper">
+                <canvas id="gi-time-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="status-container-wrapper">
+        <div class="status-container">
+            <!-- Status A Box -->
+            <div class="status-box">
+                <div class="status-title">Status A</div>
+                <div class="status-item">
+                    <div class="status-label">DELIVERIES</div>
+                    <div class="status-value" id="status-a-deliveries">1</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">HU</div>
+                    <div class="status-value" id="status-a-hu">1</div>
+                </div>
+            </div>
+    
+            <!-- Status B Box -->
+            <div class="status-box">
+                <div class="status-title">Status B</div>
+                <div class="status-item">
+                    <div class="status-label">DELIVERIES</div>
+                    <div class="status-value" id="status-b-deliveries">150</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">HU</div>
+                    <div class="status-value" id="status-b-hu">277</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">LINES OPEN</div>
+                    <div class="status-value status-lines" id="status-b-lines">499</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">OPEN LINES PICKED</div>
+                    <div class="status-value status-picked" id="status-b-lines-picked">26</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">OPEN LINES NOT PICKED</div>
+                    <div class="status-value status-not-picked" id="status-b-lines-not-picked">473</div>
+                </div>
+            </div>
+    
+            <!-- Status C Box -->
+            <div class="status-box">
+                <div class="status-title">Status C</div>
+                <div class="status-item">
+                    <div class="status-label">DELIVERIES</div>
+                    <div class="status-value" id="status-c-deliveries">45</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">HU</div>
+                    <div class="status-value" id="status-c-hu">67</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">LINES OPEN</div>
+                    <div class="status-value status-lines" id="status-c-lines">116</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LTAP Chart Container -->
+    <div class="chart-container-wrapper ltap-chart-container">
+        <div class="chart-container">
+            <div class="chart-header">
+                <div class="title-with-total">
+                    <h2 class="chart-title">Picking Activity</h2>
+                    <div class="total-picks-container">
+                        <span class="total-picks-label">Total Picks:</span>
+                        <span class="total-picks-value" id="total-picks-count">Loading...</span>
+                    </div>
+                </div>
+                <div class="chart-selector">
+                    <button id="btn-interval-chart" class="chart-button active">Interval View</button>
+                    <button id="btn-hourly-chart" class="chart-button">Hourly View</button>
+                    <button id="btn-picker-chart" class="chart-button">Picker View</button>
+                </div>
+            </div>
+            <div class="chart-canvas-wrapper">
+                <canvas id="ltap-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Status Boxes -->
+    <div class="status-container-wrapper">
+        <div class="status-container">
+            <!-- Process Box -->
+            <div class="status-box">
+                <div class="status-title">Process</div>
+                
+                <!-- P2B Section -->
+                <div class="status-subtitle">P2B</div>
+                <div class="status-item">
+                    <div class="status-label">DELIVERIES</div>
+                    <div class="status-value" id="process-p2b-deliveries">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">LINES</div>
+                    <div class="status-value status-lines" id="process-p2b-lines">Loading...</div>
+                </div>
+                
+                <!-- LEGACY Section -->
+                <div class="status-subtitle">LEGACY</div>
+                <div class="status-item">
+                    <div class="status-label">DELIVERIES</div>
+                    <div class="status-value" id="process-legacy-deliveries">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">LINES</div>
+                    <div class="status-value status-lines" id="process-legacy-lines">Loading...</div>
+                </div>
+            </div>
+
+            <!-- NESTING/CONSOLIDATION Box -->
+            <div class="status-box">
+                <div class="status-title">Nesting/Consolidation</div>
+                
+                <!-- NESTING Section -->
+                <div class="status-subtitle">NESTING</div>
+                <div class="status-item">
+                    <div class="status-label">DELIVERIES</div>
+                    <div class="status-value" id="nesting-deliveries">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">HU</div>
+                    <div class="status-value" id="nesting-hu">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">LINES</div>
+                    <div class="status-value status-lines" id="nesting-lines">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">LINES NOT PICKED</div>
+                    <div class="status-value status-not-picked" id="nesting-lines-not-picked">Loading...</div>
+                </div>
+                
+                <!-- CONSOLIDATION Section -->
+                <div class="status-subtitle">CONSOLIDATION</div>
+                <div class="status-item">
+                    <div class="status-label">DELIVERIES</div>
+                    <div class="status-value" id="cons-deliveries">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">HU</div>
+                    <div class="status-value" id="cons-hu">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">LINES</div>
+                    <div class="status-value status-lines" id="cons-lines">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">LINES NOT PICKED</div>
+                    <div class="status-value status-not-picked" id="cons-lines-not-picked">Loading...</div>
+                </div>
+            </div>
+
+            <!-- VAS/DG Box -->
+            <div class="status-box">
+                <div class="status-title">VAS/DG</div>
+                
+                <!-- VAS Section -->
+                <div class="status-subtitle">VAS</div>
+                <div class="status-item">
+                    <div class="status-label">DELIVERIES</div>
+                    <div class="status-value" id="vas-deliveries">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">HU</div>
+                    <div class="status-value" id="vas-hu">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">LINES</div>
+                    <div class="status-value status-lines" id="vas-lines">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">LINES NOT PICKED</div>
+                    <div class="status-value status-not-picked" id="vas-lines-not-picked">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">QUANTITY</div>
+                    <div class="status-value" id="vas-qty">Loading...</div>
+                </div>
+                
+                <!-- DG Section -->
+                <div class="status-subtitle">DG</div>
+                <div class="status-item">
+                    <div class="status-label">DELIVERIES</div>
+                    <div class="status-value" id="dg-deliveries">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">HU</div>
+                    <div class="status-value" id="dg-hu">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">LINES</div>
+                    <div class="status-value status-lines" id="dg-lines">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">LINES NOT PICKED</div>
+                    <div class="status-value status-not-picked" id="dg-lines-not-picked">Loading...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">QUANTITY</div>
+                    <div class="status-value" id="dg-qty">Loading...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CDHDR Chart Container -->
+    <div class="chart-container-wrapper cdhdr-chart-container">
+        <div class="chart-container">
+            <div class="chart-header">
+                <div class="title-with-total">
+                    <h2 class="chart-title">Conveyor Box Closing Activity</h2>
+                    <div class="total-picks-container">
+                        <span class="total-picks-label">Total Boxes:</span>
+                        <span class="total-picks-value" id="total-boxes-count">Loading...</span>
+                    </div>
+                </div>
+                <div class="chart-selector">
+                    <button id="btn-cdhdr-interval-chart" class="chart-button active">Interval View</button>
+                    <button id="btn-cdhdr-hourly-chart" class="chart-button">Hourly View</button>
+                </div>
+            </div>
+            <div class="chart-canvas-wrapper">
+                <canvas id="cdhdr-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZU History Chart Container -->
+    <div class="chart-container-wrapper zu-history-chart-container">
+        <div class="chart-container">
+            <div class="chart-header">
+                <div class="title-with-total">
+                    <h2 class="chart-title">Palletizing Activity</h2>
+                    <div class="total-picks-container">
+                        <span class="total-picks-label">Total Boxes:</span>
+                        <span class="total-picks-value" id="total-palletized-count">Loading...</span>
+                    </div>
+                </div>
+                <div class="chart-selector">
+                    <button id="btn-zu-interval-chart" class="chart-button active">Interval View</button>
+                    <button id="btn-zu-hourly-chart" class="chart-button">Hourly View</button>
+                    <button id="btn-zu-palletizer-chart" class="chart-button">Palletizer View</button>
+                </div>
+            </div>
+            <div class="chart-canvas-wrapper">
+                <canvas id="zu-history-chart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Made with <span class="heart">❤</span></p>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
