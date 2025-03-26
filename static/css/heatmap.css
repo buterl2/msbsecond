@@ -64,7 +64,7 @@ body {
 .heatmap-container {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    gap: 4px;
+    gap: var(--column-gap, 4px); /* Default to 4px if variable not set */
     padding: 20px;
     width: calc(100% - 60px);
     margin: 30px auto;
@@ -87,14 +87,10 @@ body {
     height: 35px;
 }
 
-.bin:hover {
-    background-color: #2d3748;
-    transform: scale(1.05);
-}
-
 .bin.empty {
-    background-color: #131c2a;
-    color: #6b7280;
+    background-color: transparent; /* Was #131c2a */
+    color: transparent; /* Was #6b7280 */
+    border: none; /* Remove the border */
 }
 
 .footer {

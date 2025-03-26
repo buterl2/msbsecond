@@ -1,27 +1,20 @@
 {
-    "layout": {
-      "columns": 15,
-      "bins": [
-        {"location": "B0110", "column": 1, "status": "active"},
-        {"location": "B0111", "column": 1, "status": "active"},
-        {"location": "B0112", "column": 1, "status": "active"},
-        {"location": "B0113", "column": 1, "status": "empty"},
-        {"location": "B0114", "column": 1, "status": "active"},
-        {"location": "B0115", "column": 1, "status": "active"},
-        
-        {"location": "B0110", "column": 2, "status": "active"},
-        {"location": "B0111", "column": 2, "status": "active"},
-        {"location": "B0112", "column": 2, "status": "active"},
-        {"location": "B0113", "column": 2, "status": "empty"},
-        {"location": "B0114", "column": 2, "status": "active"},
-        {"location": "B0115", "column": 2, "status": "active"},
-
-        {"location": "B0110", "column": 3, "status": "active"},
-        {"location": "B0111", "column": 3, "status": "active"},
-        {"location": "B0112", "column": 3, "status": "active"},
-        {"location": "B0113", "column": 3, "status": "empty"},
-        {"location": "B0114", "column": 3, "status": "active"},
-        {"location": "B0115", "column": 3, "status": "active"}
-      ]
-    }
+  "layout": {
+    "columns": 2,
+    "bins": [
+      {"location": "B0110", "row": 1, "column": 1, "status": "active"},
+      {"location": "B0111", "row": 2, "column": 1, "status": "active"},
+      {"location": "B0112", "row": 3, "column": 1, "status": "active"},
+      {"location": "B0113", "row": 4, "column": 1, "status": "empty"},
+      {"location": "B0114", "row": 5, "column": 1, "status": "active"},
+      {"location": "B0115", "row": 6, "column": 1, "status": "active"},
+      
+      {"location": "B0210", "row": 1, "column": 2, "status": "active"},
+      {"location": "B0211", "row": 2, "column": 2, "status": "active"},
+      {"location": "B0212", "row": 3, "column": 2, "status": "active"},
+      {"location": "B0213", "row": 4, "column": 2, "status": "empty"},
+      {"location": "B0214", "row": 5, "column": 2, "status": "active"},
+      {"location": "B0215", "row": 6, "column": 2, "status": "active"}
+    ]
   }
+}

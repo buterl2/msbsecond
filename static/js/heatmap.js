@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    // Set a customizable gap between columns (in pixels)
+    const columnGap = 4; // You can change this value to adjust spacing
+    document.documentElement.style.setProperty('--column-gap', columnGap + 'px');
+
     // Update the timestamp
     updateTimestamp();
     
@@ -47,7 +52,10 @@ function renderBinLayout(layoutData) {
     // Set the number of columns for the grid
     heatmapContainer.style.gridTemplateColumns = `repeat(${layoutData.columns}, 1fr)`;
     
-    // Process each column in the layout
+    // Apply the custom column gap
+    heatmapContainer.style.gap = `var(--column-gap)`;
+    
+    // Process each bin in the layout
     layoutData.bins.forEach(bin => {
         const binElement = document.createElement('div');
         binElement.className = 'bin';
@@ -62,8 +70,12 @@ function renderBinLayout(layoutData) {
             binElement.classList.add('empty');
         }
         
-        // Optional: Set a specific grid-column property if provided
-        if (bin.column) {
+        // Set grid position if row and column are specified
+        if (bin.row && bin.column) {
+            binElement.style.gridRow = bin.row;
+            binElement.style.gridColumn = bin.column;
+        } else if (bin.column) {
+            // Backward compatibility: if only column is specified
             binElement.style.gridColumn = bin.column;
         }
         
