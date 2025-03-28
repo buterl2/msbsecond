@@ -1,13 +1,13 @@
 {
-  "total_boxes": 432,
+  "total_boxes": 497,
   "users": [
     {
       "user": "ROMANM50",
-      "box_count": 325
+      "box_count": 370
     },
     {
       "user": "HRLOUB105",
-      "box_count": 107
+      "box_count": 127
     }
   ],
   "intervals": [
@@ -154,23 +154,32 @@
     {
       "interval_start": "08:30:00",
       "interval_end": "08:45:00",
-      "box_count": 34,
+      "box_count": 63,
       "users": [
         {
           "user": "ROMANM50",
-          "box_count": 25
+          "box_count": 47
         },
         {
           "user": "HRLOUB105",
-          "box_count": 9
+          "box_count": 16
         }
       ]
     },
     {
       "interval_start": "08:45:00",
       "interval_end": "09:00:00",
-      "box_count": 0,
-      "users": []
+      "box_count": 36,
+      "users": [
+        {
+          "user": "ROMANM50",
+          "box_count": 23
+        },
+        {
+          "user": "HRLOUB105",
+          "box_count": 13
+        }
+      ]
     },
     {
       "interval_start": "09:00:00",
@@ -530,7 +539,7 @@
   "user_statistics": [
     {
       "user": "ROMANM50",
-      "total_boxes": 325,
+      "total_boxes": 370,
       "intervals": [
         {
           "interval_start": "06:00:00",
@@ -585,13 +594,18 @@
         {
           "interval_start": "08:30:00",
           "interval_end": "08:45:00",
-          "box_count": 25
+          "box_count": 47
+        },
+        {
+          "interval_start": "08:45:00",
+          "interval_end": "09:00:00",
+          "box_count": 23
         }
       ]
     },
     {
       "user": "HRLOUB105",
-      "total_boxes": 107,
+      "total_boxes": 127,
       "intervals": [
         {
           "interval_start": "06:30:00",
@@ -626,7 +640,12 @@
         {
           "interval_start": "08:30:00",
           "interval_end": "08:45:00",
-          "box_count": 9
+          "box_count": 16
+        },
+        {
+          "interval_start": "08:45:00",
+          "interval_end": "09:00:00",
+          "box_count": 13
         }
       ]
     }
