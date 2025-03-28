@@ -1,13 +1,13 @@
 {
-  "total_boxes": 389,
+  "total_boxes": 407,
   "users": [
     {
       "user": "ROMANM50",
-      "box_count": 297
+      "box_count": 304
     },
     {
       "user": "HRLOUB105",
-      "box_count": 92
+      "box_count": 103
     }
   ],
   "intervals": [
@@ -139,23 +139,32 @@
     {
       "interval_start": "08:15:00",
       "interval_end": "08:30:00",
-      "box_count": 54,
+      "box_count": 63,
       "users": [
         {
           "user": "ROMANM50",
-          "box_count": 35
+          "box_count": 38
         },
         {
           "user": "HRLOUB105",
-          "box_count": 19
+          "box_count": 25
         }
       ]
     },
     {
       "interval_start": "08:30:00",
       "interval_end": "08:45:00",
-      "box_count": 0,
-      "users": []
+      "box_count": 9,
+      "users": [
+        {
+          "user": "HRLOUB105",
+          "box_count": 5
+        },
+        {
+          "user": "ROMANM50",
+          "box_count": 4
+        }
+      ]
     },
     {
       "interval_start": "08:45:00",
@@ -521,7 +530,7 @@
   "user_statistics": [
     {
       "user": "ROMANM50",
-      "total_boxes": 297,
+      "total_boxes": 304,
       "intervals": [
         {
           "interval_start": "06:00:00",
@@ -571,13 +580,18 @@
         {
           "interval_start": "08:15:00",
           "interval_end": "08:30:00",
-          "box_count": 35
+          "box_count": 38
+        },
+        {
+          "interval_start": "08:30:00",
+          "interval_end": "08:45:00",
+          "box_count": 4
         }
       ]
     },
     {
       "user": "HRLOUB105",
-      "total_boxes": 92,
+      "total_boxes": 103,
       "intervals": [
         {
           "interval_start": "06:30:00",
@@ -607,7 +621,12 @@
         {
           "interval_start": "08:15:00",
           "interval_end": "08:30:00",
-          "box_count": 19
+          "box_count": 25
+        },
+        {
+          "interval_start": "08:30:00",
+          "interval_end": "08:45:00",
+          "box_count": 5
         }
       ]
     }
