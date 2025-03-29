@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Set a customizable gap between columns and rows (in pixels)
-    const gridGap = 4; // Very small gap - change this value to adjust spacing
+    const gridGap = 10; // Very small gap - change this value to adjust spacing
     document.documentElement.style.setProperty('--column-gap', gridGap + 'px');
     
     // Update the timestamp
