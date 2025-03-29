@@ -59,14 +59,12 @@ body {
     margin-top: 5px;
 }
 
-/* Removed main-container and heatmap-controls styles */
-
 .heatmap-container {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: var(--column-gap, 2px); /* Default to 4px if variable not set */
+    /* The grid-template-columns will be set by JavaScript */
+    gap: var(--column-gap, 1px); /* Default to 1px if variable not set */
     padding: 20px;
-    width: calc(100% - 60px);
+    max-width: 1400px; /* Add a max width to prevent stretching on large screens */
     margin: 30px auto;
 }
 
@@ -81,17 +79,20 @@ body {
     font-weight: bold;
     border-radius: 3px;
     cursor: pointer;
-    transition: all 0.2s ease;
     border: 1px solid #384557;
     width: 35px;
     height: 35px;
+    /* Remove transition since we're removing hover effects */
 }
 
+/* Update empty bins to be invisible but maintain position */
 .bin.empty {
-    background-color: transparent; /* Was #131c2a */
-    color: transparent; /* Was #6b7280 */
-    border: none; /* Remove the border */
+    background-color: transparent;
+    color: transparent;
+    border: none;
 }
+
+/* Hover effect removed */
 
 .footer {
     position: fixed;
@@ -132,12 +133,6 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .heatmap-container {
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .heatmap-container {
-        grid-template-columns: repeat(3, 1fr);
+        max-width: 95%;
     }
 }

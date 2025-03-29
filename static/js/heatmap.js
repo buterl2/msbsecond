@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-
-    // Set a customizable gap between columns (in pixels)
-    const columnGap = 1; // You can change this value to adjust spacing
-    document.documentElement.style.setProperty('--column-gap', columnGap + 'px');
-
+    // Set a customizable gap between columns and rows (in pixels)
+    const gridGap = 1; // Very small gap - change this value to adjust spacing
+    document.documentElement.style.setProperty('--column-gap', gridGap + 'px');
+    
     // Update the timestamp
     updateTimestamp();
     
@@ -50,10 +49,25 @@ function renderBinLayout(layoutData) {
     heatmapContainer.innerHTML = '';
     
     // Set the number of columns for the grid
-    heatmapContainer.style.gridTemplateColumns = `repeat(${layoutData.columns}, 1fr)`;
+    // We're explicitly setting a fixed number of columns here
+    const numColumns = layoutData.columns || 15; // Default to 15 if not specified
+    heatmapContainer.style.gridTemplateColumns = `repeat(${numColumns}, min-content)`;
     
-    // Apply the custom column gap
-    heatmapContainer.style.gap = `var(--column-gap)`;
+    // Create a tracking object for grid positions
+    // This helps us place bins correctly in the grid
+    const gridPositions = {};
+    
+    // First pass: determine the grid structure
+    layoutData.bins.forEach(bin => {
+        const row = bin.row || 1;
+        const column = bin.column || 1;
+        
+        // Track which columns are used in each row
+        if (!gridPositions[row]) {
+            gridPositions[row] = [];
+        }
+        gridPositions[row].push(column);
+    });
     
     // Process each bin in the layout
     layoutData.bins.forEach(bin => {
@@ -62,22 +76,20 @@ function renderBinLayout(layoutData) {
         binElement.setAttribute('data-location', bin.location);
         binElement.textContent = bin.location;
         
-        // Add column information as a data attribute
-        binElement.setAttribute('data-column', bin.column);
+        // Add row and column information as data attributes
+        const row = bin.row || 1;
+        const column = bin.column || 1;
+        binElement.setAttribute('data-row', row);
+        binElement.setAttribute('data-column', column);
         
-        // Add any status classes if needed
+        // Add status class
         if (bin.status === 'empty') {
             binElement.classList.add('empty');
         }
         
-        // Set grid position if row and column are specified
-        if (bin.row && bin.column) {
-            binElement.style.gridRow = bin.row;
-            binElement.style.gridColumn = bin.column;
-        } else if (bin.column) {
-            // Backward compatibility: if only column is specified
-            binElement.style.gridColumn = bin.column;
-        }
+        // Set grid position
+        binElement.style.gridRow = row;
+        binElement.style.gridColumn = column;
         
         // Add click event for future functionality
         binElement.addEventListener('click', function() {
