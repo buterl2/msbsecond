@@ -64,7 +64,7 @@ body {
 .heatmap-container {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    gap: var(--column-gap, 4px); /* Default to 4px if variable not set */
+    gap: var(--column-gap, 2px); /* Default to 4px if variable not set */
     padding: 20px;
     width: calc(100% - 60px);
     margin: 30px auto;

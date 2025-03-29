@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // Set a customizable gap between columns (in pixels)
-    const columnGap = 4; // You can change this value to adjust spacing
+    const columnGap = 1; // You can change this value to adjust spacing
     document.documentElement.style.setProperty('--column-gap', columnGap + 'px');
 
     // Update the timestamp
