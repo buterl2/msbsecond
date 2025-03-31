@@ -6,7 +6,7 @@ body {
     color: #f5f5f5;
     min-height: 100vh;
     position: relative;
-    overflow: auto; /* Changed from hidden to auto */
+    overflow: auto;
     display: flex;
     flex-direction: column;
 }
@@ -59,11 +59,11 @@ body {
 .heatmap-container {
     display: grid;
     gap: var(--column-gap, 1px);
-    width: 98%; /* Use almost the full width */
-    height: calc(100vh - 100px); /* Use the full height minus the top bar */
-    margin: 0 auto; /* Center horizontally */
+    width: 98%;
+    height: calc(100vh - 100px);
+    margin: 0 auto;
     overflow: visible;
-    justify-content: center; /* Center the grid */
+    justify-content: center;
 }
 
 .bin {
@@ -72,14 +72,18 @@ body {
     justify-content: center;
     background-color: #1e293b;
     color: white;
-    font-size: 10px;
     font-weight: bold;
     border-radius: 3px;
     cursor: pointer;
     border: 1px solid #384557;
-    /* Size will be calculated dynamically in JavaScript */
     min-width: 20px;
     min-height: 20px;
+    /* Text settings for better readability */
+    text-align: center;
+    padding: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+    /* Font size will be set dynamically in JavaScript */
 }
 
 /* Update empty bins to be invisible but maintain position */

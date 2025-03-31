@@ -146,8 +146,30 @@ function calculateBinSize(columns, rows) {
         bin.style.width = binSize + 'px';
         bin.style.height = binSize + 'px';
         
-        // Adjust font size based on bin size
-        bin.style.fontSize = Math.max(8, Math.floor(binSize / 4)) + 'px';
+        // Set optimal font size for readability - improved algorithm
+        const textLength = bin.textContent.length;
+        
+        // Base the font size on both bin size and text length
+        // Adjust these values to fine-tune text sizing
+        let fontSize;
+        
+        // For bin codes like your screenshot (B1234, etc.)
+        if (textLength <= 6) {
+            fontSize = Math.max(8, Math.floor(binSize / 3.5));
+        }
+        // For longer codes (adjust as needed for your actual data)
+        else if (textLength <= 10) {
+            fontSize = Math.max(7, Math.floor(binSize / 4.5));
+        } 
+        // For very long location codes
+        else {
+            fontSize = Math.max(6, Math.floor(binSize / 5.5));
+        }
+        
+        bin.style.fontSize = fontSize + 'px';
+        
+        // Add a title attribute for hover information (useful for very small bins)
+        bin.title = bin.textContent;
     });
 }
 
