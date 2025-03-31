@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Set a customizable gap between columns and rows (in pixels)
-    const gridGap = 14; // Very small gap - change this value to adjust spacing
+    // Set a customizable gap between items
+    const gridGap = 1; // Very small gap - change this value to adjust spacing
     document.documentElement.style.setProperty('--column-gap', gridGap + 'px');
     
     // Update the timestamp
@@ -8,6 +8,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Load bin locations from JSON file
     loadBinLocations();
+    
+    // Add resize event listener to handle window resizing
+    window.addEventListener('resize', function() {
+        // Throttle the resize event
+        clearTimeout(window.resizeTimer);
+        window.resizeTimer = setTimeout(function() {
+            // Reload bin locations to recalculate sizes
+            loadBinLocations();
+        }, 250);
+    });
 });
 
 function updateTimestamp() {
@@ -48,26 +58,15 @@ function renderBinLayout(layoutData) {
     // Clear existing content
     heatmapContainer.innerHTML = '';
     
-    // Set the number of columns for the grid
-    // We're explicitly setting a fixed number of columns here
-    const numColumns = layoutData.columns || 15; // Default to 15 if not specified
-    heatmapContainer.style.gridTemplateColumns = `repeat(${numColumns}, min-content)`;
+    // Analyze the grid structure to determine dimensions
+    const grid = analyzeGrid(layoutData.bins);
     
-    // Create a tracking object for grid positions
-    // This helps us place bins correctly in the grid
-    const gridPositions = {};
+    // Set the columns based on the analysis
+    heatmapContainer.style.gridTemplateColumns = `repeat(${grid.columns}, 1fr)`;
+    heatmapContainer.style.gridTemplateRows = `repeat(${grid.rows}, 1fr)`;
     
-    // First pass: determine the grid structure
-    layoutData.bins.forEach(bin => {
-        const row = bin.row || 1;
-        const column = bin.column || 1;
-        
-        // Track which columns are used in each row
-        if (!gridPositions[row]) {
-            gridPositions[row] = [];
-        }
-        gridPositions[row].push(column);
-    });
+    // Calculate proper bin size based on available space and grid dimensions
+    calculateBinSize(grid.columns, grid.rows);
     
     // Process each bin in the layout
     layoutData.bins.forEach(bin => {
@@ -98,6 +97,57 @@ function renderBinLayout(layoutData) {
         });
         
         heatmapContainer.appendChild(binElement);
+    });
+}
+
+function analyzeGrid(bins) {
+    // Find the maximum row and column values
+    let maxRow = 0;
+    let maxColumn = 0;
+    
+    bins.forEach(bin => {
+        const row = bin.row || 1;
+        const column = bin.column || 1;
+        
+        maxRow = Math.max(maxRow, row);
+        maxColumn = Math.max(maxColumn, column);
+    });
+    
+    return {
+        rows: maxRow,
+        columns: maxColumn
+    };
+}
+
+function calculateBinSize(columns, rows) {
+    // Get available space
+    const container = document.getElementById('heatmap');
+    const availableWidth = container.clientWidth;
+    const availableHeight = container.clientHeight;
+    
+    // Calculate optimal bin size
+    // Subtract a small amount for gaps and borders
+    const gapSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--column-gap')) || 1;
+    const totalGapsWidth = gapSize * (columns - 1);
+    const totalGapsHeight = gapSize * (rows - 1);
+    
+    const binWidth = Math.floor((availableWidth - totalGapsWidth) / columns);
+    const binHeight = Math.floor((availableHeight - totalGapsHeight) / rows);
+    
+    // Use the smaller dimension to keep bins square
+    const binSize = Math.min(binWidth, binHeight);
+    
+    // Set the CSS custom property for bin size
+    document.documentElement.style.setProperty('--bin-size', binSize + 'px');
+    
+    // Apply the size to all bins
+    const bins = document.querySelectorAll('.bin');
+    bins.forEach(bin => {
+        bin.style.width = binSize + 'px';
+        bin.style.height = binSize + 'px';
+        
+        // Adjust font size based on bin size
+        bin.style.fontSize = Math.max(8, Math.floor(binSize / 4)) + 'px';
     });
 }
 
