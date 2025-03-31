@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Set a customizable gap between items
-    const gridGap = 1; // Very small gap - change this value to adjust spacing
+    // Set a customizable gap between items (increased for better visibility)
+    const gridGap = 4; // Increased gap - change this value to adjust spacing
     document.documentElement.style.setProperty('--column-gap', gridGap + 'px');
+    
+    // Set a default bin size - will adjust based on content
+    const binSize = 30; // Default bin size in pixels
+    document.documentElement.style.setProperty('--bin-size', binSize + 'px');
     
     // Create tooltip element for hover information
     createTooltip();
@@ -17,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Throttle the resize event
         clearTimeout(window.resizeTimer);
         window.resizeTimer = setTimeout(function() {
-            // Reload bin locations to recalculate sizes
-            loadBinLocations();
+            // Update the layout without changing bin size
+            updateLayout();
         }, 250);
     });
 });
@@ -68,6 +72,31 @@ function loadBinLocations() {
         });
 }
 
+function updateLayout() {
+    // Get the existing layout data
+    const bins = document.querySelectorAll('.bin');
+    if (bins.length === 0) return;
+    
+    // Get the container
+    const heatmapContainer = document.getElementById('heatmap');
+    
+    // Find maximum row and column
+    let maxRow = 0;
+    let maxColumn = 0;
+    
+    bins.forEach(bin => {
+        const row = parseInt(bin.getAttribute('data-row')) || 1;
+        const column = parseInt(bin.getAttribute('data-column')) || 1;
+        
+        maxRow = Math.max(maxRow, row);
+        maxColumn = Math.max(maxColumn, column);
+    });
+    
+    // Update the grid template
+    heatmapContainer.style.gridTemplateColumns = `repeat(${maxColumn}, var(--bin-size))`;
+    heatmapContainer.style.gridTemplateRows = `repeat(${maxRow}, var(--bin-size))`;
+}
+
 function renderBinLayout(layoutData) {
     const heatmapContainer = document.getElementById('heatmap');
     const tooltip = document.querySelector('.bin-tooltip');
@@ -78,12 +107,9 @@ function renderBinLayout(layoutData) {
     // Analyze the grid structure to determine dimensions
     const grid = analyzeGrid(layoutData.bins);
     
-    // Set the columns based on the analysis
-    heatmapContainer.style.gridTemplateColumns = `repeat(${grid.columns}, 1fr)`;
-    heatmapContainer.style.gridTemplateRows = `repeat(${grid.rows}, 1fr)`;
-    
-    // Calculate proper bin size based on available space and grid dimensions
-    calculateBinSize(grid.columns, grid.rows);
+    // Set the columns and rows for the grid
+    heatmapContainer.style.gridTemplateColumns = `repeat(${grid.columns}, var(--bin-size))`;
+    heatmapContainer.style.gridTemplateRows = `repeat(${grid.rows}, var(--bin-size))`;
     
     // Process each bin in the layout
     layoutData.bins.forEach(bin => {
@@ -148,35 +174,6 @@ function analyzeGrid(bins) {
         rows: maxRow,
         columns: maxColumn
     };
-}
-
-function calculateBinSize(columns, rows) {
-    // Get available space
-    const container = document.getElementById('heatmap');
-    const availableWidth = container.clientWidth;
-    const availableHeight = container.clientHeight;
-    
-    // Calculate optimal bin size
-    // Subtract a small amount for gaps and borders
-    const gapSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--column-gap')) || 1;
-    const totalGapsWidth = gapSize * (columns - 1);
-    const totalGapsHeight = gapSize * (rows - 1);
-    
-    const binWidth = Math.floor((availableWidth - totalGapsWidth) / columns);
-    const binHeight = Math.floor((availableHeight - totalGapsHeight) / rows);
-    
-    // Use the smaller dimension to keep bins square
-    const binSize = Math.min(binWidth, binHeight);
-    
-    // Set the CSS custom property for bin size
-    document.documentElement.style.setProperty('--bin-size', binSize + 'px');
-    
-    // Apply the size to all bins
-    const bins = document.querySelectorAll('.bin');
-    bins.forEach(bin => {
-        bin.style.width = binSize + 'px';
-        bin.style.height = binSize + 'px';
-    });
 }
 
 function showError() {

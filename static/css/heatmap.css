@@ -6,7 +6,8 @@ body {
     color: #f5f5f5;
     min-height: 100vh;
     position: relative;
-    overflow: auto;
+    /* Keep overflow auto for vertical scrolling */
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
 }
@@ -19,6 +20,7 @@ body {
     padding: 10px 20px;
     width: 100%;
     box-sizing: border-box;
+    z-index: 10; /* Ensure top bar stays above other content */
 }
 
 .logo-container {
@@ -56,14 +58,22 @@ body {
     margin-top: 5px;
 }
 
+/* Heatmap container with horizontal scroll */
+.heatmap-wrapper {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 100px);
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
 .heatmap-container {
     display: grid;
-    gap: var(--column-gap, 1px);
-    width: 98%;
-    height: calc(100vh - 100px);
-    margin: 0 auto;
-    overflow: visible;
-    justify-content: center;
+    gap: var(--column-gap, 4px); /* Increased default gap for better spacing */
+    padding: 20px;
+    /* Don't limit the width to enable horizontal scrolling */
+    min-width: fit-content; /* Ensure it takes at least the available space */
+    height: fit-content; /* Allow it to grow with content */
 }
 
 .bin {
@@ -75,8 +85,9 @@ body {
     border-radius: 3px;
     cursor: pointer;
     border: 1px solid #384557;
-    min-width: 20px;
-    min-height: 20px;
+    /* Fixed size for bins */
+    width: var(--bin-size, 30px);
+    height: var(--bin-size, 30px);
 }
 
 /* Update empty bins to be invisible but maintain position */
@@ -127,7 +138,7 @@ body {
 
 /* Tooltip styling for showing bin information on hover */
 .bin-tooltip {
-    position: absolute;
+    position: fixed; /* Changed from absolute for better positioning */
     background-color: #1e293b;
     color: white;
     padding: 5px 8px;
