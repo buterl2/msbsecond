@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const gridGap = 1; // Very small gap - change this value to adjust spacing
     document.documentElement.style.setProperty('--column-gap', gridGap + 'px');
     
+    // Create tooltip element for hover information
+    createTooltip();
+    
     // Update the timestamp
     updateTimestamp();
     
@@ -19,6 +22,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 250);
     });
 });
+
+function createTooltip() {
+    // Create tooltip element for bin information on hover
+    const tooltip = document.createElement('div');
+    tooltip.className = 'bin-tooltip';
+    document.body.appendChild(tooltip);
+    
+    // Add event listeners to track mouse movement for the tooltip
+    document.addEventListener('mousemove', function(e) {
+        tooltip.style.left = (e.pageX + 10) + 'px';
+        tooltip.style.top = (e.pageY + 10) + 'px';
+    });
+}
 
 function updateTimestamp() {
     const now = new Date();
@@ -54,6 +70,7 @@ function loadBinLocations() {
 
 function renderBinLayout(layoutData) {
     const heatmapContainer = document.getElementById('heatmap');
+    const tooltip = document.querySelector('.bin-tooltip');
     
     // Clear existing content
     heatmapContainer.innerHTML = '';
@@ -72,7 +89,11 @@ function renderBinLayout(layoutData) {
     layoutData.bins.forEach(bin => {
         const binElement = document.createElement('div');
         binElement.className = 'bin';
+        
+        // Store location data as attributes
         binElement.setAttribute('data-location', bin.location);
+        
+        // We still set the text content but it's not visible (useful for internal references)
         binElement.textContent = bin.location;
         
         // Add row and column information as data attributes
@@ -89,6 +110,16 @@ function renderBinLayout(layoutData) {
         // Set grid position
         binElement.style.gridRow = row;
         binElement.style.gridColumn = column;
+        
+        // Add hover events to show location information
+        binElement.addEventListener('mouseenter', function() {
+            tooltip.textContent = bin.location;
+            tooltip.style.display = 'block';
+        });
+        
+        binElement.addEventListener('mouseleave', function() {
+            tooltip.style.display = 'none';
+        });
         
         // Add click event for future functionality
         binElement.addEventListener('click', function() {
@@ -145,31 +176,6 @@ function calculateBinSize(columns, rows) {
     bins.forEach(bin => {
         bin.style.width = binSize + 'px';
         bin.style.height = binSize + 'px';
-        
-        // Set optimal font size for readability - improved algorithm
-        const textLength = bin.textContent.length;
-        
-        // Base the font size on both bin size and text length
-        // Adjust these values to fine-tune text sizing
-        let fontSize;
-        
-        // For bin codes like your screenshot (B1234, etc.)
-        if (textLength <= 6) {
-            fontSize = Math.max(8, Math.floor(binSize / 3.5));
-        }
-        // For longer codes (adjust as needed for your actual data)
-        else if (textLength <= 10) {
-            fontSize = Math.max(7, Math.floor(binSize / 4.5));
-        } 
-        // For very long location codes
-        else {
-            fontSize = Math.max(6, Math.floor(binSize / 5.5));
-        }
-        
-        bin.style.fontSize = fontSize + 'px';
-        
-        // Add a title attribute for hover information (useful for very small bins)
-        bin.title = bin.textContent;
     });
 }
 

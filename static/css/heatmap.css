@@ -71,19 +71,12 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #1e293b;
-    color: white;
-    font-weight: bold;
+    color: transparent; /* Make text transparent so it's not visible */
     border-radius: 3px;
     cursor: pointer;
     border: 1px solid #384557;
     min-width: 20px;
     min-height: 20px;
-    /* Text settings for better readability */
-    text-align: center;
-    padding: 2px;
-    overflow: hidden;
-    white-space: nowrap;
-    /* Font size will be set dynamically in JavaScript */
 }
 
 /* Update empty bins to be invisible but maintain position */
@@ -130,4 +123,18 @@ body {
     text-align: center;
     padding: 20px;
     font-size: 1.2rem;
+}
+
+/* Tooltip styling for showing bin information on hover */
+.bin-tooltip {
+    position: absolute;
+    background-color: #1e293b;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 1000;
+    pointer-events: none;
+    border: 1px solid #384557;
+    display: none;
 }
