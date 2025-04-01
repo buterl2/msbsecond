@@ -225,26 +225,33 @@ def conveyor():
 @app.route('/api/bin_activity')
 def bin_activity():
     try:
-        # Path to the CSV file in the data directory
-        csv_path = os.path.join('msb-dashboard', 'static', 'data', 'ltap_modify.csv')
+        # Try multiple potential paths that might work on Render.com
+        possible_paths = [
+            os.path.join('static', 'data', 'ltap_modify.csv'),            # If Flask is configured with static_folder
+            os.path.join('msb-dashboard', 'static', 'data', 'ltap_modify.csv'),  # From project root
+            'ltap_modify.csv'                                              # In root directory
+        ]
         
-        # Try alternate paths if file not found
-        if not os.path.exists(csv_path):
-            alternate_paths = [
-                'ltap_modify.csv',
-                os.path.join(os.getcwd(), 'ltap_modify.csv'),
-                os.path.join(os.getcwd(), 'msb-dashboard', 'static', 'data', 'ltap_modify.csv')
-            ]
-            
-            for path in alternate_paths:
-                if os.path.exists(path):
-                    csv_path = path
-                    break
-        
-        if not os.path.exists(csv_path):
+        csv_path = None
+        for path in possible_paths:
+            if os.path.exists(path):
+                csv_path = path
+                print(f"Found CSV file at: {path}")
+                break
+                
+        if csv_path is None:
+            # For debugging: Print the current directory and list files
+            current_dir = os.getcwd()
+            try:
+                files_in_current = os.listdir(current_dir)
+                print(f"Current directory: {current_dir}")
+                print(f"Files in current directory: {files_in_current}")
+            except Exception as e:
+                print(f"Error listing directory: {str(e)}")
+                
             return jsonify({
                 'success': False,
-                'error': 'CSV file not found'
+                'error': 'CSV file not found. Please check Render.com logs for details.'
             })
         
         # Read the CSV file
@@ -263,7 +270,7 @@ def bin_activity():
                 return None
             
             # Extract the prefix using regex pattern (letters followed by numbers)
-            match = re.match(r'([A-Za-z]+\d+)', bin_value)
+            match = re.match(r'([A-Za-z]+\d+)', str(bin_value))
             if match:
                 return match.group(1)
             return bin_value  # Return as is if pattern doesn't match
@@ -278,27 +285,28 @@ def bin_activity():
         bin_activity = df['BIN_PREFIX'].value_counts().reset_index()
         bin_activity.columns = ['location', 'activity_count']
         
-        # Convert int64 values to regular Python ints to make them JSON serializable
+        # Convert to regular Python integers for JSON serialization
         bin_activity['activity_count'] = bin_activity['activity_count'].astype(int)
         
         # Convert to list of dictionaries for JSON response
         activity_data = bin_activity.to_dict('records')
         
-        # Calculate min and max activity for scaling - convert to regular Python ints
+        # Calculate min and max activity for scaling
         min_activity = int(bin_activity['activity_count'].min()) if not bin_activity.empty else 0
         max_activity = int(bin_activity['activity_count'].max()) if not bin_activity.empty else 0
-        total_activities = int(len(df))
         
         return jsonify({
             'success': True,
             'activity_data': activity_data,
             'min_activity': min_activity,
             'max_activity': max_activity,
-            'total_activities': total_activities
+            'total_activities': int(len(df))
         })
     except Exception as e:
         import traceback
-        print(traceback.format_exc())  # Print full error trace for debugging
+        traceback_str = traceback.format_exc()
+        print(f"Error in bin_activity: {str(e)}")
+        print(traceback_str)
         return jsonify({
             'success': False,
             'error': str(e)
