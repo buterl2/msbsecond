@@ -220,6 +220,70 @@ def statistics():
 def conveyor():
     return render_template('conveyor.html')
 
+@app.route('/api/bin_activity')
+def bin_activity():
+    try:
+        # Path to the CSV file in root directory
+        csv_path = 'ltap_modify.csv'
+        
+        if not os.path.exists(csv_path):
+            return jsonify({
+                'success': False,
+                'error': 'CSV file not found'
+            })
+        
+        # Read the CSV file
+        df = pd.read_csv(csv_path)
+        
+        # Check if the SOURCE_BIN column exists
+        if 'SOURCE_BIN' not in df.columns:
+            return jsonify({
+                'success': False,
+                'error': 'SOURCE_BIN column not found in CSV'
+            })
+        
+        # Process the SOURCE_BIN column to extract the bin prefix
+        # Create a function to extract the bin prefix (e.g., get "C2449" from "C24490D")
+        def extract_bin_prefix(bin_value):
+            if not isinstance(bin_value, str):
+                return None
+            
+            # Extract the prefix using regex pattern (letters followed by numbers)
+            match = re.match(r'([A-Za-z]+\d+)', bin_value)
+            if match:
+                return match.group(1)
+            return bin_value  # Return as is if pattern doesn't match
+        
+        # Apply the function to create a new column with bin prefixes
+        df['BIN_PREFIX'] = df['SOURCE_BIN'].apply(extract_bin_prefix)
+        
+        # Drop rows with None values in BIN_PREFIX
+        df = df.dropna(subset=['BIN_PREFIX'])
+        
+        # Count activities per bin prefix
+        bin_activity = df['BIN_PREFIX'].value_counts().reset_index()
+        bin_activity.columns = ['location', 'activity_count']
+        
+        # Convert to list of dictionaries for JSON response
+        activity_data = bin_activity.to_dict('records')
+        
+        # Calculate min and max activity for scaling
+        min_activity = bin_activity['activity_count'].min() if not bin_activity.empty else 0
+        max_activity = bin_activity['activity_count'].max() if not bin_activity.empty else 0
+        
+        return jsonify({
+            'success': True,
+            'activity_data': activity_data,
+            'min_activity': min_activity,
+            'max_activity': max_activity,
+            'total_activities': len(df)
+        })
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        })
+
 @app.route('/api/pgid_lines_statistics')
 def pgid_lines_statistics():
     try:

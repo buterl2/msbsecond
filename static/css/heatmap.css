@@ -12,6 +12,15 @@ body {
     flex-direction: column;
 }
 
+/* Define activity color variables for the heatmap */
+:root {
+    --low-activity-color: #3498db; /* Light blue - matches your dashboard theme */
+    --medium-activity-color: #9b59b6; /* Purple - middle intensity */
+    --high-activity-color: #e91e63; /* Pink/Red - matches dashboard accent */
+    --column-gap: 4px;
+    --bin-size: 30px;
+}
+
 .top-bar {
     position: relative;
     display: flex;
@@ -65,6 +74,7 @@ body {
     height: calc(100vh - 100px);
     overflow-x: auto; /* Enable horizontal scrolling */
     overflow-y: auto; /* Enable vertical scrolling if needed */
+    padding-top: 60px; /* Space for the legend */
 }
 
 .heatmap-container {
@@ -88,6 +98,7 @@ body {
     /* Fixed size for bins */
     width: var(--bin-size, 30px);
     height: var(--bin-size, 30px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover effects */
 }
 
 /* Update empty bins to be invisible but maintain position */
@@ -95,6 +106,86 @@ body {
     background-color: transparent;
     color: transparent;
     border: none;
+}
+
+/* Activity level styling - heat gradient */
+.bin.low-activity {
+    background-color: var(--low-activity-color);
+    border-color: var(--low-activity-color);
+}
+
+.bin.medium-activity {
+    background-color: var(--medium-activity-color);
+    border-color: var(--medium-activity-color);
+}
+
+.bin.high-activity {
+    background-color: var(--high-activity-color);
+    border-color: var(--high-activity-color);
+}
+
+/* Hover effects for bins */
+.bin:not(.empty):hover {
+    transform: scale(1.2);
+    z-index: 5;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Legend styling */
+.legend-holder {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    z-index: 100;
+}
+
+.heatmap-legend {
+    background-color: rgba(14, 22, 40, 0.8);
+    border: 1px solid #384557;
+    border-radius: 5px;
+    padding: 10px;
+    width: 180px;
+}
+
+.legend-title {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.legend-scale {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.legend-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    margin-bottom: 4px;
+}
+
+.legend-label {
+    color: #ffffff;
+    font-size: 0.75rem;
+}
+
+.legend-info {
+    color: #ffffff;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 8px;
+    border-top: 1px solid #384557;
+    padding-top: 8px;
 }
 
 .footer {
@@ -141,11 +232,27 @@ body {
     position: fixed; /* Changed from absolute for better positioning */
     background-color: #1e293b;
     color: white;
-    padding: 5px 8px;
+    padding: 8px 12px;
     border-radius: 4px;
     font-size: 12px;
     z-index: 1000;
     pointer-events: none;
     border: 1px solid #384557;
     display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .legend-holder {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: 10px auto;
+        width: 180px;
+    }
+    
+    .heatmap-wrapper {
+        padding-top: 0;
+    }
 }
