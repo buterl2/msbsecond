@@ -224,7 +224,7 @@ def conveyor():
 def bin_activity():
     try:
         # Path to the CSV file in root directory
-        csv_path = 'ltap_modify.csv'
+        csv_path = '../ltap_modify.csv'
         
         if not os.path.exists(csv_path):
             return jsonify({
