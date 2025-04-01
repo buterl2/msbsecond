@@ -225,8 +225,21 @@ def conveyor():
 @app.route('/api/bin_activity')
 def bin_activity():
     try:
-        # Path to the CSV file in root directory
-        csv_path = 'static/data/ltap_modify.csv'
+        # Path to the CSV file in the data directory
+        csv_path = os.path.join('msb-dashboard', 'static', 'data', 'ltap_modify.csv')
+        
+        # Try alternate paths if file not found
+        if not os.path.exists(csv_path):
+            alternate_paths = [
+                'ltap_modify.csv',
+                os.path.join(os.getcwd(), 'ltap_modify.csv'),
+                os.path.join(os.getcwd(), 'msb-dashboard', 'static', 'data', 'ltap_modify.csv')
+            ]
+            
+            for path in alternate_paths:
+                if os.path.exists(path):
+                    csv_path = path
+                    break
         
         if not os.path.exists(csv_path):
             return jsonify({
@@ -245,7 +258,6 @@ def bin_activity():
             })
         
         # Process the SOURCE_BIN column to extract the bin prefix
-        # Create a function to extract the bin prefix (e.g., get "C2449" from "C24490D")
         def extract_bin_prefix(bin_value):
             if not isinstance(bin_value, str):
                 return None
@@ -266,21 +278,27 @@ def bin_activity():
         bin_activity = df['BIN_PREFIX'].value_counts().reset_index()
         bin_activity.columns = ['location', 'activity_count']
         
+        # Convert int64 values to regular Python ints to make them JSON serializable
+        bin_activity['activity_count'] = bin_activity['activity_count'].astype(int)
+        
         # Convert to list of dictionaries for JSON response
         activity_data = bin_activity.to_dict('records')
         
-        # Calculate min and max activity for scaling
-        min_activity = bin_activity['activity_count'].min() if not bin_activity.empty else 0
-        max_activity = bin_activity['activity_count'].max() if not bin_activity.empty else 0
+        # Calculate min and max activity for scaling - convert to regular Python ints
+        min_activity = int(bin_activity['activity_count'].min()) if not bin_activity.empty else 0
+        max_activity = int(bin_activity['activity_count'].max()) if not bin_activity.empty else 0
+        total_activities = int(len(df))
         
         return jsonify({
             'success': True,
             'activity_data': activity_data,
             'min_activity': min_activity,
             'max_activity': max_activity,
-            'total_activities': len(df)
+            'total_activities': total_activities
         })
     except Exception as e:
+        import traceback
+        print(traceback.format_exc())  # Print full error trace for debugging
         return jsonify({
             'success': False,
             'error': str(e)
