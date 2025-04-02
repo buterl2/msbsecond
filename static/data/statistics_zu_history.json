@@ -1,13 +1,13 @@
 {
-  "total_boxes": 4253,
+  "total_boxes": 4276,
   "users": [
     {
       "user": "HRLOUB202",
-      "box_count": 719
+      "box_count": 731
     },
     {
       "user": "HRLOUB216",
-      "box_count": 599
+      "box_count": 610
     },
     {
       "user": "TYMOSR2",
@@ -1436,15 +1436,15 @@
     {
       "interval_start": "22:15:00",
       "interval_end": "22:30:00",
-      "box_count": 60,
+      "box_count": 67,
       "users": [
         {
           "user": "HRLOUB216",
-          "box_count": 23
+          "box_count": 26
         },
         {
           "user": "HRLOUB202",
-          "box_count": 21
+          "box_count": 25
         },
         {
           "user": "HRLOUB76",
@@ -1459,8 +1459,17 @@
     {
       "interval_start": "22:30:00",
       "interval_end": "22:45:00",
-      "box_count": 0,
-      "users": []
+      "box_count": 16,
+      "users": [
+        {
+          "user": "HRLOUB202",
+          "box_count": 8
+        },
+        {
+          "user": "HRLOUB216",
+          "box_count": 8
+        }
+      ]
     },
     {
       "interval_start": "22:45:00",
@@ -1490,7 +1499,7 @@
   "user_statistics": [
     {
       "user": "HRLOUB202",
-      "total_boxes": 719,
+      "total_boxes": 731,
       "intervals": [
         {
           "interval_start": "15:00:00",
@@ -1625,13 +1634,18 @@
         {
           "interval_start": "22:15:00",
           "interval_end": "22:30:00",
-          "box_count": 21
+          "box_count": 25
+        },
+        {
+          "interval_start": "22:30:00",
+          "interval_end": "22:45:00",
+          "box_count": 8
         }
       ]
     },
     {
       "user": "HRLOUB216",
-      "total_boxes": 599,
+      "total_boxes": 610,
       "intervals": [
         {
           "interval_start": "15:00:00",
@@ -1766,7 +1780,12 @@
         {
           "interval_start": "22:15:00",
           "interval_end": "22:30:00",
-          "box_count": 23
+          "box_count": 26
+        },
+        {
+          "interval_start": "22:30:00",
+          "interval_end": "22:45:00",
+          "box_count": 8
         }
       ]
     },
