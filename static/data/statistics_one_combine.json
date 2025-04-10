@@ -1,12 +1,12 @@
 {
   "total": {
-    "deliveries": 1574,
-    "hu": 2362,
-    "lines": 3558,
-    "lines_picked": 1071,
-    "lines_not_picked": 2487,
-    "qty": 11670,
-    "percentage_picked": 30.1
+    "deliveries": 1261,
+    "hu": 1918,
+    "lines": 2819,
+    "lines_picked": 820,
+    "lines_not_picked": 1999,
+    "qty": 8891,
+    "percentage_picked": 29.09
   },
   "by_date": [
     {
@@ -546,12 +546,12 @@
     {
       "date": "2025-04-09",
       "stats": {
-        "deliveries": 8,
-        "hu": 66,
-        "lines": 108,
-        "lines_picked": 108,
+        "deliveries": 7,
+        "hu": 5,
+        "lines": 30,
+        "lines_picked": 30,
         "lines_not_picked": 0,
-        "qty": 553,
+        "qty": 69,
         "by_status": {
           "A": {
             "deliveries": 2,
@@ -563,23 +563,23 @@
             "percentage_picked": 0
           },
           "C": {
-            "deliveries": 6,
-            "hu": 65,
-            "lines": 108,
-            "lines_picked": 108,
+            "deliveries": 5,
+            "hu": 4,
+            "lines": 30,
+            "lines_picked": 30,
             "lines_not_picked": 0,
-            "qty": 553,
+            "qty": 69,
             "percentage_picked": 100.0
           }
         },
         "by_process": {
           "P2B": {
-            "deliveries": 7,
-            "hu": 66,
-            "lines": 103,
-            "lines_picked": 103,
+            "deliveries": 6,
+            "hu": 5,
+            "lines": 25,
+            "lines_picked": 25,
             "lines_not_picked": 0,
-            "qty": 553,
+            "qty": 69,
             "percentage_picked": 100.0
           },
           "LEGACY": {
@@ -601,15 +601,6 @@
             "lines_not_picked": 0,
             "qty": 69,
             "percentage_picked": 100.0
-          },
-          "true": {
-            "deliveries": 1,
-            "hu": 61,
-            "lines": 78,
-            "lines_picked": 78,
-            "lines_not_picked": 0,
-            "qty": 484,
-            "percentage_picked": 100.0
           }
         },
         "by_cons": {
@@ -620,15 +611,6 @@
             "lines_picked": 30,
             "lines_not_picked": 0,
             "qty": 69,
-            "percentage_picked": 100.0
-          },
-          "true": {
-            "deliveries": 1,
-            "hu": 61,
-            "lines": 78,
-            "lines_picked": 78,
-            "lines_not_picked": 0,
-            "qty": 484,
             "percentage_picked": 100.0
           }
         },
@@ -643,12 +625,12 @@
             "percentage_picked": 0
           },
           "12:59:59": {
-            "deliveries": 2,
-            "hu": 61,
-            "lines": 83,
-            "lines_picked": 83,
+            "deliveries": 1,
+            "hu": 0,
+            "lines": 5,
+            "lines_picked": 5,
             "lines_not_picked": 0,
-            "qty": 484,
+            "qty": 0,
             "percentage_picked": 100.0
           },
           "17:59:59": {
@@ -672,12 +654,12 @@
         },
         "by_vas": {
           "False": {
-            "deliveries": 5,
-            "hu": 63,
-            "lines": 84,
-            "lines_picked": 84,
+            "deliveries": 4,
+            "hu": 2,
+            "lines": 6,
+            "lines_picked": 6,
             "lines_not_picked": 0,
-            "qty": 488,
+            "qty": 4,
             "percentage_picked": 100.0
           },
           "True": {
@@ -692,12 +674,12 @@
         },
         "by_dg_vas": {
           "False": {
-            "deliveries": 5,
-            "hu": 63,
-            "lines": 84,
-            "lines_picked": 84,
+            "deliveries": 4,
+            "hu": 2,
+            "lines": 6,
+            "lines_picked": 6,
             "lines_not_picked": 0,
-            "qty": 488,
+            "qty": 4,
             "percentage_picked": 100.0
           },
           "True": {
@@ -716,218 +698,191 @@
     {
       "date": "2025-04-10",
       "stats": {
-        "deliveries": 1152,
-        "hu": 1602,
-        "lines": 2707,
-        "lines_picked": 881,
-        "lines_not_picked": 1826,
-        "qty": 8275,
+        "deliveries": 766,
+        "hu": 1146,
+        "lines": 1921,
+        "lines_picked": 706,
+        "lines_not_picked": 1215,
+        "qty": 5701,
         "by_status": {
           "C": {
-            "deliveries": 408,
-            "hu": 565,
-            "lines": 720,
-            "lines_picked": 720,
+            "deliveries": 159,
+            "hu": 327,
+            "lines": 507,
+            "lines_picked": 507,
             "lines_not_picked": 0,
-            "qty": 2569,
+            "qty": 1456,
             "percentage_picked": 100.0
           },
+          "B": {
+            "deliveries": 586,
+            "hu": 797,
+            "lines": 1414,
+            "lines_picked": 199,
+            "lines_not_picked": 1215,
+            "qty": 4245,
+            "percentage_picked": 14.07
+          },
           "A": {
-            "deliveries": 29,
-            "hu": 34,
+            "deliveries": 21,
+            "hu": 22,
             "lines": 0,
             "lines_picked": 0,
             "lines_not_picked": 0,
             "qty": 0,
             "percentage_picked": 0
-          },
-          "B": {
-            "deliveries": 715,
-            "hu": 1003,
-            "lines": 1987,
-            "lines_picked": 161,
-            "lines_not_picked": 1826,
-            "qty": 5706,
-            "percentage_picked": 8.1
           }
         },
         "by_process": {
           "P2B": {
-            "deliveries": 1150,
-            "hu": 1602,
-            "lines": 2694,
-            "lines_picked": 879,
-            "lines_not_picked": 1815,
-            "qty": 8275,
-            "percentage_picked": 32.63
+            "deliveries": 764,
+            "hu": 1146,
+            "lines": 1908,
+            "lines_picked": 694,
+            "lines_not_picked": 1214,
+            "qty": 5701,
+            "percentage_picked": 36.37
           },
           "LEGACY": {
             "deliveries": 2,
             "hu": 0,
             "lines": 13,
-            "lines_picked": 2,
-            "lines_not_picked": 11,
+            "lines_picked": 12,
+            "lines_not_picked": 1,
             "qty": 0,
-            "percentage_picked": 15.38
+            "percentage_picked": 92.31
           }
         },
         "by_nesting": {
-          "false": {
-            "deliveries": 1128,
-            "hu": 1338,
-            "lines": 2339,
-            "lines_picked": 583,
-            "lines_not_picked": 1756,
-            "qty": 6341,
-            "percentage_picked": 24.93
-          },
           "true": {
-            "deliveries": 24,
-            "hu": 264,
-            "lines": 368,
-            "lines_picked": 298,
-            "lines_not_picked": 70,
-            "qty": 1934,
-            "percentage_picked": 80.98
+            "deliveries": 23,
+            "hu": 236,
+            "lines": 337,
+            "lines_picked": 283,
+            "lines_not_picked": 54,
+            "qty": 1426,
+            "percentage_picked": 83.98
+          },
+          "false": {
+            "deliveries": 743,
+            "hu": 910,
+            "lines": 1584,
+            "lines_picked": 423,
+            "lines_not_picked": 1161,
+            "qty": 4275,
+            "percentage_picked": 26.7
           }
         },
         "by_cons": {
-          "false": {
-            "deliveries": 1055,
-            "hu": 1058,
-            "lines": 1940,
-            "lines_picked": 465,
-            "lines_not_picked": 1475,
-            "qty": 5476,
-            "percentage_picked": 23.97
-          },
           "true": {
-            "deliveries": 97,
-            "hu": 544,
-            "lines": 767,
-            "lines_picked": 416,
-            "lines_not_picked": 351,
-            "qty": 2799,
-            "percentage_picked": 54.24
+            "deliveries": 77,
+            "hu": 458,
+            "lines": 633,
+            "lines_picked": 425,
+            "lines_not_picked": 208,
+            "qty": 2054,
+            "percentage_picked": 67.14
+          },
+          "false": {
+            "deliveries": 689,
+            "hu": 688,
+            "lines": 1288,
+            "lines_picked": 281,
+            "lines_not_picked": 1007,
+            "qty": 3647,
+            "percentage_picked": 21.82
           }
         },
         "by_gi_time": {
-          "00:00:00": {
-            "deliveries": 1,
-            "hu": 1,
-            "lines": 1,
-            "lines_picked": 1,
-            "lines_not_picked": 0,
-            "qty": 1,
-            "percentage_picked": 100.0
-          },
           "12:59:59": {
             "deliveries": 3,
             "hu": 32,
-            "lines": 37,
+            "lines": 38,
             "lines_picked": 37,
-            "lines_not_picked": 0,
-            "qty": 312,
-            "percentage_picked": 100.0
-          },
-          "14:10:42": {
-            "deliveries": 2,
-            "hu": 2,
-            "lines": 2,
-            "lines_picked": 0,
-            "lines_not_picked": 2,
-            "qty": 6,
-            "percentage_picked": 0.0
-          },
-          "14:10:44": {
-            "deliveries": 1,
-            "hu": 1,
-            "lines": 1,
-            "lines_picked": 0,
             "lines_not_picked": 1,
-            "qty": 3,
-            "percentage_picked": 0.0
+            "qty": 341,
+            "percentage_picked": 97.37
           },
           "15:59:59": {
-            "deliveries": 9,
-            "hu": 9,
-            "lines": 10,
-            "lines_picked": 5,
-            "lines_not_picked": 5,
-            "qty": 21,
-            "percentage_picked": 50.0
+            "deliveries": 3,
+            "hu": 3,
+            "lines": 3,
+            "lines_picked": 1,
+            "lines_not_picked": 2,
+            "qty": 4,
+            "percentage_picked": 33.33
           },
           "16:29:59": {
-            "deliveries": 52,
-            "hu": 154,
-            "lines": 193,
-            "lines_picked": 179,
-            "lines_not_picked": 14,
-            "qty": 1322,
-            "percentage_picked": 92.75
+            "deliveries": 37,
+            "hu": 94,
+            "lines": 115,
+            "lines_picked": 95,
+            "lines_not_picked": 20,
+            "qty": 639,
+            "percentage_picked": 82.61
           },
           "16:59:59": {
-            "deliveries": 3,
-            "hu": 4,
+            "deliveries": 2,
+            "hu": 3,
             "lines": 8,
             "lines_picked": 2,
             "lines_not_picked": 6,
-            "qty": 11,
+            "qty": 10,
             "percentage_picked": 25.0
           },
           "17:59:59": {
-            "deliveries": 31,
-            "hu": 90,
-            "lines": 207,
-            "lines_picked": 143,
-            "lines_not_picked": 64,
-            "qty": 444,
-            "percentage_picked": 69.08
+            "deliveries": 33,
+            "hu": 93,
+            "lines": 200,
+            "lines_picked": 133,
+            "lines_not_picked": 67,
+            "qty": 461,
+            "percentage_picked": 66.5
           },
           "18:29:59": {
-            "deliveries": 2,
-            "hu": 5,
-            "lines": 2,
+            "deliveries": 4,
+            "hu": 7,
+            "lines": 8,
             "lines_picked": 1,
-            "lines_not_picked": 1,
-            "qty": 2,
-            "percentage_picked": 50.0
+            "lines_not_picked": 7,
+            "qty": 11,
+            "percentage_picked": 12.5
           },
           "18:59:59": {
-            "deliveries": 368,
-            "hu": 389,
-            "lines": 722,
-            "lines_picked": 194,
-            "lines_not_picked": 528,
-            "qty": 2358,
-            "percentage_picked": 26.87
+            "deliveries": 140,
+            "hu": 159,
+            "lines": 271,
+            "lines_picked": 100,
+            "lines_not_picked": 171,
+            "qty": 963,
+            "percentage_picked": 36.9
           },
           "19:29:59": {
-            "deliveries": 174,
-            "hu": 338,
-            "lines": 575,
-            "lines_picked": 136,
-            "lines_not_picked": 439,
-            "qty": 1247,
-            "percentage_picked": 23.65
+            "deliveries": 79,
+            "hu": 199,
+            "lines": 327,
+            "lines_picked": 215,
+            "lines_not_picked": 112,
+            "qty": 673,
+            "percentage_picked": 65.75
           },
           "20:29:59": {
             "deliveries": 6,
-            "hu": 7,
-            "lines": 5,
-            "lines_picked": 1,
+            "hu": 8,
+            "lines": 6,
+            "lines_picked": 2,
             "lines_not_picked": 4,
-            "qty": 6,
-            "percentage_picked": 20.0
+            "qty": 7,
+            "percentage_picked": 33.33
           },
           "20:59:59": {
-            "deliveries": 481,
-            "hu": 510,
-            "lines": 858,
-            "lines_picked": 153,
-            "lines_not_picked": 705,
-            "qty": 2305,
-            "percentage_picked": 17.83
+            "deliveries": 441,
+            "hu": 489,
+            "lines": 857,
+            "lines_picked": 84,
+            "lines_not_picked": 773,
+            "qty": 2352,
+            "percentage_picked": 9.8
           },
           "21:29:59": {
             "deliveries": 1,
@@ -939,89 +894,89 @@
             "percentage_picked": 100.0
           },
           "22:59:59": {
-            "deliveries": 17,
-            "hu": 56,
-            "lines": 82,
-            "lines_picked": 25,
-            "lines_not_picked": 57,
+            "deliveries": 16,
+            "hu": 55,
+            "lines": 83,
+            "lines_picked": 33,
+            "lines_not_picked": 50,
             "qty": 227,
-            "percentage_picked": 30.49
+            "percentage_picked": 39.76
           },
           "23:59:00": {
             "deliveries": 1,
             "hu": 1,
-            "lines": 1,
-            "lines_picked": 1,
-            "lines_not_picked": 0,
-            "qty": 7,
-            "percentage_picked": 100.0
+            "lines": 2,
+            "lines_picked": 0,
+            "lines_not_picked": 2,
+            "qty": 10,
+            "percentage_picked": 0.0
           }
         },
         "by_vas": {
           "False": {
-            "deliveries": 1073,
-            "hu": 1509,
-            "lines": 2494,
-            "lines_picked": 802,
-            "lines_not_picked": 1692,
-            "qty": 7940,
-            "percentage_picked": 32.16
+            "deliveries": 698,
+            "hu": 1071,
+            "lines": 1737,
+            "lines_picked": 566,
+            "lines_not_picked": 1171,
+            "qty": 5445,
+            "percentage_picked": 32.58
           },
           "True": {
-            "deliveries": 79,
-            "hu": 93,
-            "lines": 213,
-            "lines_picked": 79,
-            "lines_not_picked": 134,
-            "qty": 335,
-            "percentage_picked": 37.09
+            "deliveries": 68,
+            "hu": 75,
+            "lines": 184,
+            "lines_picked": 140,
+            "lines_not_picked": 44,
+            "qty": 256,
+            "percentage_picked": 76.09
           }
         },
         "by_dg_vas": {
           "False": {
-            "deliveries": 1123,
-            "hu": 1573,
-            "lines": 2596,
-            "lines_picked": 876,
-            "lines_not_picked": 1720,
-            "qty": 8164,
-            "percentage_picked": 33.74
+            "deliveries": 736,
+            "hu": 1116,
+            "lines": 1805,
+            "lines_picked": 603,
+            "lines_not_picked": 1202,
+            "qty": 5585,
+            "percentage_picked": 33.41
           },
           "True": {
-            "deliveries": 29,
-            "hu": 29,
-            "lines": 111,
-            "lines_picked": 5,
-            "lines_not_picked": 106,
-            "qty": 111,
-            "percentage_picked": 4.5
+            "deliveries": 30,
+            "hu": 30,
+            "lines": 116,
+            "lines_picked": 103,
+            "lines_not_picked": 13,
+            "qty": 116,
+            "percentage_picked": 88.79
           }
         },
-        "percentage_picked": 32.55
+        "percentage_picked": 36.75
       }
     },
     {
       "date": "2025-04-11",
       "stats": {
-        "deliveries": 338,
-        "hu": 633,
-        "lines": 687,
+        "deliveries": 396,
+        "hu": 694,
+        "lines": 809,
         "lines_picked": 76,
-        "lines_not_picked": 611,
-        "qty": 2735,
+        "lines_not_picked": 733,
+        "qty": 3004,
         "by_status": {
           "B": {
-            "deliveries": 269,
-            "hu": 454,
-            "lines": 613,
-            "lines_picked": 2,
-            "lines_not_picked": 611,
-            "qty": 2654,
-            "percentage_picked": 0.33
+            "deliveries": 322,
+            "hu": 539,
+            "lines": 736,
+            "lines_picked": 3,
+            "lines_not_picked": 733,
+            "qty": 2928,
+            "percentage_picked": 0.41
           },
           "A": {
-            "deliveries": 14,
-            "hu": 105,
+            "deliveries": 20,
+            "hu": 82,
             "lines": 0,
             "lines_picked": 0,
             "lines_not_picked": 0,
@@ -1029,64 +984,64 @@
             "percentage_picked": 0
           },
           "C": {
-            "deliveries": 55,
-            "hu": 74,
-            "lines": 74,
-            "lines_picked": 74,
+            "deliveries": 54,
+            "hu": 73,
+            "lines": 73,
+            "lines_picked": 73,
             "lines_not_picked": 0,
-            "qty": 81,
+            "qty": 76,
             "percentage_picked": 100.0
           }
         },
         "by_process": {
           "P2B": {
-            "deliveries": 338,
-            "hu": 633,
-            "lines": 687,
+            "deliveries": 396,
+            "hu": 694,
+            "lines": 809,
             "lines_picked": 76,
-            "lines_not_picked": 611,
-            "qty": 2735,
-            "percentage_picked": 11.06
+            "lines_not_picked": 733,
+            "qty": 3004,
+            "percentage_picked": 9.39
           }
         },
         "by_nesting": {
           "false": {
-            "deliveries": 329,
-            "hu": 486,
-            "lines": 475,
-            "lines_picked": 74,
-            "lines_not_picked": 401,
-            "qty": 1476,
-            "percentage_picked": 15.58
+            "deliveries": 384,
+            "hu": 521,
+            "lines": 567,
+            "lines_picked": 73,
+            "lines_not_picked": 494,
+            "qty": 1658,
+            "percentage_picked": 12.87
           },
           "true": {
-            "deliveries": 9,
-            "hu": 147,
-            "lines": 212,
-            "lines_picked": 2,
-            "lines_not_picked": 210,
-            "qty": 1259,
-            "percentage_picked": 0.94
+            "deliveries": 12,
+            "hu": 173,
+            "lines": 242,
+            "lines_picked": 3,
+            "lines_not_picked": 239,
+            "qty": 1346,
+            "percentage_picked": 1.24
           }
         },
         "by_cons": {
           "false": {
-            "deliveries": 308,
-            "hu": 399,
-            "lines": 338,
-            "lines_picked": 50,
-            "lines_not_picked": 288,
-            "qty": 1008,
-            "percentage_picked": 14.79
+            "deliveries": 361,
+            "hu": 423,
+            "lines": 419,
+            "lines_picked": 49,
+            "lines_not_picked": 370,
+            "qty": 1179,
+            "percentage_picked": 11.69
           },
           "true": {
-            "deliveries": 30,
-            "hu": 234,
-            "lines": 349,
-            "lines_picked": 26,
-            "lines_not_picked": 323,
-            "qty": 1727,
-            "percentage_picked": 7.45
+            "deliveries": 35,
+            "hu": 271,
+            "lines": 390,
+            "lines_picked": 27,
+            "lines_not_picked": 363,
+            "qty": 1825,
+            "percentage_picked": 6.92
           }
         },
         "by_gi_time": {
@@ -1127,13 +1082,13 @@
             "percentage_picked": 0.0
           },
           "16:29:59": {
-            "deliveries": 35,
-            "hu": 55,
-            "lines": 59,
-            "lines_picked": 2,
-            "lines_not_picked": 57,
-            "qty": 610,
-            "percentage_picked": 3.39
+            "deliveries": 36,
+            "hu": 56,
+            "lines": 60,
+            "lines_picked": 1,
+            "lines_not_picked": 59,
+            "qty": 614,
+            "percentage_picked": 1.67
           },
           "16:59:59": {
             "deliveries": 1,
@@ -1145,13 +1100,13 @@
             "percentage_picked": 0.0
           },
           "17:59:59": {
-            "deliveries": 47,
-            "hu": 82,
-            "lines": 60,
-            "lines_picked": 3,
-            "lines_not_picked": 57,
-            "qty": 157,
-            "percentage_picked": 5.0
+            "deliveries": 53,
+            "hu": 88,
+            "lines": 95,
+            "lines_picked": 4,
+            "lines_not_picked": 91,
+            "qty": 203,
+            "percentage_picked": 4.21
           },
           "18:29:59": {
             "deliveries": 3,
@@ -1163,40 +1118,40 @@
             "percentage_picked": 0.0
           },
           "18:59:59": {
-            "deliveries": 39,
-            "hu": 55,
-            "lines": 55,
+            "deliveries": 40,
+            "hu": 56,
+            "lines": 56,
             "lines_picked": 30,
-            "lines_not_picked": 25,
-            "qty": 142,
-            "percentage_picked": 54.55
+            "lines_not_picked": 26,
+            "qty": 143,
+            "percentage_picked": 53.57
           },
           "19:29:59": {
-            "deliveries": 45,
-            "hu": 69,
-            "lines": 69,
-            "lines_picked": 30,
-            "lines_not_picked": 39,
-            "qty": 154,
-            "percentage_picked": 43.48
+            "deliveries": 57,
+            "hu": 84,
+            "lines": 101,
+            "lines_picked": 31,
+            "lines_not_picked": 70,
+            "qty": 216,
+            "percentage_picked": 30.69
           },
           "20:59:59": {
-            "deliveries": 136,
-            "hu": 140,
-            "lines": 180,
-            "lines_picked": 11,
-            "lines_not_picked": 169,
-            "qty": 611,
-            "percentage_picked": 6.11
+            "deliveries": 173,
+            "hu": 177,
+            "lines": 222,
+            "lines_picked": 9,
+            "lines_not_picked": 213,
+            "qty": 702,
+            "percentage_picked": 4.05
           },
           "21:29:59": {
             "deliveries": 5,
             "hu": 114,
             "lines": 190,
-            "lines_picked": 0,
-            "lines_not_picked": 190,
+            "lines_picked": 1,
+            "lines_not_picked": 189,
             "qty": 583,
-            "percentage_picked": 0.0
+            "percentage_picked": 0.53
           },
           "22:59:59": {
             "deliveries": 2,
@@ -1217,80 +1172,80 @@
             "percentage_picked": 0.0
           },
           "23:59:58": {
-            "deliveries": 13,
-            "hu": 69,
-            "lines": 28,
+            "deliveries": 14,
+            "hu": 70,
+            "lines": 39,
             "lines_picked": 0,
-            "lines_not_picked": 28,
-            "qty": 190,
+            "lines_not_picked": 39,
+            "qty": 255,
             "percentage_picked": 0.0
           }
         },
         "by_vas": {
           "False": {
-            "deliveries": 294,
-            "hu": 583,
-            "lines": 620,
-            "lines_picked": 75,
-            "lines_not_picked": 545,
-            "qty": 2643,
-            "percentage_picked": 12.1
+            "deliveries": 350,
+            "hu": 642,
+            "lines": 735,
+            "lines_picked": 72,
+            "lines_not_picked": 663,
+            "qty": 2905,
+            "percentage_picked": 9.8
           },
           "True": {
-            "deliveries": 44,
-            "hu": 50,
-            "lines": 67,
-            "lines_picked": 1,
-            "lines_not_picked": 66,
-            "qty": 92,
-            "percentage_picked": 1.49
+            "deliveries": 46,
+            "hu": 52,
+            "lines": 74,
+            "lines_picked": 4,
+            "lines_not_picked": 70,
+            "qty": 99,
+            "percentage_picked": 5.41
           }
         },
         "by_dg_vas": {
           "False": {
-            "deliveries": 333,
-            "hu": 585,
-            "lines": 608,
-            "lines_picked": 76,
-            "lines_not_picked": 532,
-            "qty": 2575,
-            "percentage_picked": 12.5
+            "deliveries": 389,
+            "hu": 644,
+            "lines": 723,
+            "lines_picked": 75,
+            "lines_not_picked": 648,
+            "qty": 2837,
+            "percentage_picked": 10.37
           },
           "True": {
-            "deliveries": 5,
-            "hu": 48,
-            "lines": 79,
-            "lines_picked": 0,
-            "lines_not_picked": 79,
-            "qty": 160,
-            "percentage_picked": 0.0
+            "deliveries": 7,
+            "hu": 50,
+            "lines": 86,
+            "lines_picked": 1,
+            "lines_not_picked": 85,
+            "qty": 167,
+            "percentage_picked": 1.16
           }
         },
-        "percentage_picked": 11.06
+        "percentage_picked": 9.39
       }
     },
     {
       "date": "2025-04-14",
       "stats": {
-        "deliveries": 19,
-        "hu": 20,
-        "lines": 19,
-        "lines_picked": 2,
-        "lines_not_picked": 17,
-        "qty": 28,
+        "deliveries": 26,
+        "hu": 29,
+        "lines": 22,
+        "lines_picked": 4,
+        "lines_not_picked": 18,
+        "qty": 38,
         "by_status": {
           "B": {
-            "deliveries": 12,
-            "hu": 13,
-            "lines": 17,
-            "lines_picked": 0,
-            "lines_not_picked": 17,
-            "qty": 22,
-            "percentage_picked": 0.0
+            "deliveries": 15,
+            "hu": 16,
+            "lines": 20,
+            "lines_picked": 2,
+            "lines_not_picked": 18,
+            "qty": 32,
+            "percentage_picked": 10.0
           },
           "A": {
-            "deliveries": 5,
-            "hu": 5,
+            "deliveries": 9,
+            "hu": 11,
             "lines": 0,
             "lines_picked": 0,
             "lines_not_picked": 0,
@@ -1309,24 +1264,24 @@
         },
         "by_process": {
           "P2B": {
-            "deliveries": 19,
-            "hu": 20,
-            "lines": 19,
-            "lines_picked": 2,
-            "lines_not_picked": 17,
-            "qty": 28,
-            "percentage_picked": 10.53
+            "deliveries": 26,
+            "hu": 29,
+            "lines": 22,
+            "lines_picked": 4,
+            "lines_not_picked": 18,
+            "qty": 38,
+            "percentage_picked": 18.18
           }
         },
         "by_nesting": {
           "false": {
-            "deliveries": 19,
-            "hu": 20,
-            "lines": 19,
-            "lines_picked": 2,
-            "lines_not_picked": 17,
-            "qty": 28,
-            "percentage_picked": 10.53
+            "deliveries": 26,
+            "hu": 29,
+            "lines": 22,
+            "lines_picked": 4,
+            "lines_not_picked": 18,
+            "qty": 38,
+            "percentage_picked": 18.18
           }
         },
         "by_cons": {
@@ -1340,41 +1295,50 @@
             "percentage_picked": 0.0
           },
           "false": {
-            "deliveries": 18,
-            "hu": 18,
-            "lines": 17,
-            "lines_picked": 2,
-            "lines_not_picked": 15,
-            "qty": 26,
-            "percentage_picked": 11.76
+            "deliveries": 25,
+            "hu": 27,
+            "lines": 20,
+            "lines_picked": 4,
+            "lines_not_picked": 16,
+            "qty": 36,
+            "percentage_picked": 20.0
           }
         },
         "by_gi_time": {
           "16:29:59": {
-            "deliveries": 2,
-            "hu": 3,
+            "deliveries": 3,
+            "hu": 4,
             "lines": 2,
             "lines_picked": 0,
             "lines_not_picked": 2,
             "qty": 2,
             "percentage_picked": 0.0
           },
+          "16:59:59": {
+            "deliveries": 1,
+            "hu": 1,
+            "lines": 0,
+            "lines_picked": 0,
+            "lines_not_picked": 0,
+            "qty": 0,
+            "percentage_picked": 0
+          },
           "19:29:59": {
-            "deliveries": 6,
-            "hu": 6,
+            "deliveries": 7,
+            "hu": 7,
             "lines": 7,
-            "lines_picked": 2,
-            "lines_not_picked": 5,
+            "lines_picked": 4,
+            "lines_not_picked": 3,
             "qty": 14,
-            "percentage_picked": 28.57
+            "percentage_picked": 57.14
           },
           "20:59:59": {
-            "deliveries": 10,
-            "hu": 10,
-            "lines": 8,
+            "deliveries": 14,
+            "hu": 16,
+            "lines": 11,
             "lines_picked": 0,
-            "lines_not_picked": 8,
-            "qty": 8,
+            "lines_not_picked": 11,
+            "qty": 18,
             "percentage_picked": 0.0
           },
           "21:29:59": {
@@ -1389,45 +1353,45 @@
         },
         "by_vas": {
           "False": {
-            "deliveries": 18,
-            "hu": 19,
-            "lines": 16,
+            "deliveries": 25,
+            "hu": 28,
+            "lines": 19,
             "lines_picked": 2,
-            "lines_not_picked": 14,
-            "qty": 25,
-            "percentage_picked": 12.5
+            "lines_not_picked": 17,
+            "qty": 35,
+            "percentage_picked": 10.53
           },
           "True": {
             "deliveries": 1,
             "hu": 1,
             "lines": 3,
-            "lines_picked": 0,
-            "lines_not_picked": 3,
+            "lines_picked": 2,
+            "lines_not_picked": 1,
             "qty": 3,
-            "percentage_picked": 0.0
+            "percentage_picked": 66.67
           }
         },
         "by_dg_vas": {
           "False": {
-            "deliveries": 18,
-            "hu": 19,
-            "lines": 16,
+            "deliveries": 25,
+            "hu": 28,
+            "lines": 19,
             "lines_picked": 2,
-            "lines_not_picked": 14,
-            "qty": 25,
-            "percentage_picked": 12.5
+            "lines_not_picked": 17,
+            "qty": 35,
+            "percentage_picked": 10.53
           },
           "True": {
             "deliveries": 1,
             "hu": 1,
             "lines": 3,
-            "lines_picked": 0,
-            "lines_not_picked": 3,
+            "lines_picked": 2,
+            "lines_not_picked": 1,
             "qty": 3,
-            "percentage_picked": 0.0
+            "percentage_picked": 66.67
           }
         },
-        "percentage_picked": 10.53
+        "percentage_picked": 18.18
       }
     },
     {
@@ -1647,13 +1611,22 @@
     {
       "date": "2025-04-17",
       "stats": {
-        "deliveries": 2,
-        "hu": 2,
+        "deliveries": 5,
+        "hu": 5,
         "lines": 3,
         "lines_picked": 0,
         "lines_not_picked": 3,
         "qty": 8,
         "by_status": {
+          "A": {
+            "deliveries": 3,
+            "hu": 3,
+            "lines": 0,
+            "lines_picked": 0,
+            "lines_not_picked": 0,
+            "qty": 0,
+            "percentage_picked": 0
+          },
           "B": {
             "deliveries": 2,
             "hu": 2,
@@ -1666,8 +1639,8 @@
         },
         "by_process": {
           "P2B": {
-            "deliveries": 2,
-            "hu": 2,
+            "deliveries": 5,
+            "hu": 5,
             "lines": 3,
             "lines_picked": 0,
             "lines_not_picked": 3,
@@ -1677,8 +1650,8 @@
         },
         "by_nesting": {
           "false": {
-            "deliveries": 2,
-            "hu": 2,
+            "deliveries": 5,
+            "hu": 5,
             "lines": 3,
             "lines_picked": 0,
             "lines_not_picked": 3,
@@ -1688,8 +1661,8 @@
         },
         "by_cons": {
           "false": {
-            "deliveries": 2,
-            "hu": 2,
+            "deliveries": 5,
+            "hu": 5,
             "lines": 3,
             "lines_picked": 0,
             "lines_not_picked": 3,
@@ -1698,6 +1671,15 @@
           }
         },
         "by_gi_time": {
+          "19:29:59": {
+            "deliveries": 3,
+            "hu": 3,
+            "lines": 0,
+            "lines_picked": 0,
+            "lines_not_picked": 0,
+            "qty": 0,
+            "percentage_picked": 0
+          },
           "20:59:59": {
             "deliveries": 2,
             "hu": 2,
@@ -1710,8 +1692,8 @@
         },
         "by_vas": {
           "False": {
-            "deliveries": 2,
-            "hu": 2,
+            "deliveries": 5,
+            "hu": 5,
             "lines": 3,
             "lines_picked": 0,
             "lines_not_picked": 3,
@@ -1721,8 +1703,8 @@
         },
         "by_dg_vas": {
           "False": {
-            "deliveries": 2,
-            "hu": 2,
+            "deliveries": 5,
+            "hu": 5,
             "lines": 3,
             "lines_picked": 0,
             "lines_not_picked": 3,
@@ -1736,15 +1718,15 @@
     {
       "date": "No Date",
       "stats": {
-        "deliveries": 23,
+        "deliveries": 29,
         "hu": 0,
         "lines": 0,
         "lines_picked": 0,
         "lines_not_picked": 0,
         "qty": 0,
         "by_status": {
-          "B": {
-            "deliveries": 6,
+          "C": {
+            "deliveries": 22,
             "hu": 0,
             "lines": 0,
             "lines_picked": 0,
@@ -1752,8 +1734,8 @@
             "qty": 0,
             "percentage_picked": 0
           },
-          "C": {
-            "deliveries": 17,
+          "B": {
+            "deliveries": 7,
             "hu": 0,
             "lines": 0,
             "lines_picked": 0,
@@ -1764,7 +1746,7 @@
         },
         "by_process": {
           "": {
-            "deliveries": 23,
+            "deliveries": 29,
             "hu": 0,
             "lines": 0,
             "lines_picked": 0,
@@ -1775,7 +1757,7 @@
         },
         "by_nesting": {
           "": {
-            "deliveries": 23,
+            "deliveries": 29,
             "hu": 0,
             "lines": 0,
             "lines_picked": 0,
@@ -1786,7 +1768,7 @@
         },
         "by_cons": {
           "": {
-            "deliveries": 23,
+            "deliveries": 29,
             "hu": 0,
             "lines": 0,
             "lines_picked": 0,
@@ -1797,7 +1779,7 @@
         },
         "by_gi_time": {
           "": {
-            "deliveries": 23,
+            "deliveries": 29,
             "hu": 0,
             "lines": 0,
             "lines_picked": 0,
@@ -1808,7 +1790,7 @@
         },
         "by_vas": {
           "False": {
-            "deliveries": 23,
+            "deliveries": 29,
             "hu": 0,
             "lines": 0,
             "lines_picked": 0,
@@ -1819,7 +1801,7 @@
         },
         "by_dg_vas": {
           "False": {
-            "deliveries": 23,
+            "deliveries": 29,
             "hu": 0,
             "lines": 0,
             "lines_picked": 0,
